@@ -47,6 +47,7 @@ default_cfgs = {
 
 model_cfgs = dict()
 
+# Note: 这个工具函数本来应该在 simplenet_repvgg 这个 constructor 中用到的, 但不知为何这里没用到.
 def _create_simplenet(variant, default_cfgs_var=None, pretrained=False, **kwargs):
     default_cfgs_var = variant if default_cfgs_var is None else default_cfgs_var
     return build_model_with_cfg(

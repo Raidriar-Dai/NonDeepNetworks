@@ -150,7 +150,7 @@ def validate(args):
         with open(args.model_cfg, 'r') as f:
             model_cfg = yaml.safe_load(f)
 
-    # create model
+    # notes1: create model
     model = create_model(
         args.model,
         pretrained=args.pretrained,
@@ -200,6 +200,7 @@ def validate(args):
         model = torch.nn.DataParallel(model, device_ids=list(range(args.num_gpu)))
 
     criterion = nn.CrossEntropyLoss().cuda()
+
 
     dataset = create_dataset(
         root=args.data, name=args.dataset, split=args.split,
